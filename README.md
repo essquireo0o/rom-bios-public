@@ -13,6 +13,16 @@ Portable Windows x64 utility from Toughbook BIOS for saving BIOS/UEFI firmware a
 
 No separate .NET installation is required. Keep firmware backups private: they can contain device identifiers and configuration data.
 
+### Reader crashes and CF-33 Mk1 support
+
+Version 1.0.1 recognizes exit code `-1073741819` (`0xC0000005`) as a native firmware-reader access violation. The app reports that failure clearly and stops trying alternate arguments against the crashed reader. It continues to try other available readers; a reader crash does not establish the BIOS password state.
+
+If **DUMP BIOS ROM** cannot produce a confirmed image, the app saves a separate `.fallback-…` folder with machine information, SMBIOS and UEFI variables that Windows permits it to read. A manifest records unavailable sections. This folder is **not a complete ROM dump** and may not contain the data needed for recovery. Any partial image remains unverified. Keep the folder and the `.dump-tool.log` for support.
+
+For a CF-33 Mk1 that boots Windows but requests a password in BIOS, run the public tool as Administrator and retain those diagnostics if the reader fails. A compatible reader or external chip reader may still be needed. Version 1.0.1 improves failure handling; a successful CF-33 Mk1 ROM dump has not been verified on customer hardware.
+
+The public build does not extract, display or export BIOS password hashes. The new fallback preserves raw firmware backup data only; SHA-256 file integrity checksums remain available.
+
 ## Public edition
 
 Password-hash extraction is not included: the extraction button, command-line entry point, automatic extraction during backups, and extraction implementation have been removed from this build. SHA-256 file checksums remain available to verify backup integrity; they are not password hashes.
