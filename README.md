@@ -141,3 +141,12 @@ These products use different platforms and lock mechanisms. The Windows BIOS bac
 | [FZ-X1](https://global-pc-support.connect.panasonic.com/search?s=209&c=205) | [Request service](https://toughbookbios.com/contact/?model=FZ-X1) |
 
 Independent service; not affiliated with or endorsed by Panasonic. Model references checked September 20, 2026.
+
+
+---
+
+## Copyright
+
+Copyright © 2026 ING Mining LLC. All rights reserved.
+
+Contact: ns@ingmining.com
